@@ -1,37 +1,46 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+				<!-- Bootstrap CSS -->
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
-</head>
-<body>
-<div class="container">
-    <div class="row" id="main">
-        
-    </div>
-	<button onclick="getWord()">Try it</button>
-</div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-<script>
+					<title>Hello, world!</title>
+				</head>
+				<body>
+					<div class="container  mr-0 mt-5">
+						<div class="col-md-12 justify-content-md-center mb-5"> 
+
+						</div>
+						<div class="row">
+							<div class="col-10">
+								<div class="row" id="main">
+								</div>
+							</div>
+							<div class="col-2 justify-content-md-right">
+								<div class="row">
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+								</div>
+								<div class="row">
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+								</div>
+								<div class="row">
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+								</div>		
+							</div>
+						</div>
+					</div>
+					<!-- Optional JavaScript -->
+					<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+					<script>
     $(function () {
-        $('[data-toggle="popover"]').popover()
+		getWord();
 	})
 	var voca = [
 			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-secondary"  data-toggle="popover" data-trigger="hover" title="Additional (adj)" data-placement="bottom" data-content="/ə\'diʃənl/ - Bổ xung - A đích-sừn-nờ-ry mới được bổ xung vào thư viện này">Additional</div><div class="col-1 col-sm-1 col-md-1"></div>',
@@ -81,58 +90,74 @@
 		];
 	var oldList = [];
 	var max = voca.length;
-	
+
 	function getWord(){
-	maxHandle=undefined;
 		$('#main').empty();
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
-		$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
+		for(var i =0; i < 24; i++){
+			$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
+		}
+		$('[data-toggle="popover"]').popover();
+		log("==============================================================");
 	}
-	/*
+
 	function maxHandle(oldList,max){
 		if(oldList.length>=max) {
-			this.oldList=[];
+			log("maxHandle","max",max);
+			log("maxHandle","oldList.length",oldList.length);
+			log("maxHandle","oldList",oldList);
+			emptyArr(oldList);
 		}
 	}
-	*/
-	
+
+	function log(func, element, mess){
+		var message = typeof(mess) === "object" ? JSON.stringify(mess) : mess;
+		log(func + " : " + element + " : " + mess);
+	}
+
+	function log(...agrs){
+		var message = agrs[0];
+		for(var i = 1; i < agrs.length; i++){
+			message += " : " + agrs[i];
+		}
+		console.log(message);
+	}
+
 	function emptyArr(arr){
-		
+		log("emptyArr","arr.length",arr.length)
 		var i=0;
 		while(arr.length>0){
-		
-			console.log(i + " : " + arr.pop());
+			arr.pop();
 		}
+		log("emptyArr","arr.length",arr.length)
 	}
-	
+
 	function getRandomNotCoincide(oldList,max,maxHandle){
+		log("getRandomNotCoincide","oldList.length",oldList.length);
 		if(maxHandle != undefined){
 			var handledValue = maxHandle(oldList,max);
 			if(!isNaN(handledValue)) return handledValue;
 		}else {
 			if(oldList.length>=max)emptyArr(oldList);
 		}
-		
+
 		var randomNumber;
 		for(var i = 0; i < max; i++){
 			randomNumber = getRandom(max);
 			if(!oldList.includes(randomNumber)){
 				oldList.push(randomNumber);
-				return randomNumber
+				log("getRandomNotCoincide","randomNumber",randomNumber);
+				return randomNumber;
 			}
 		}
-		
+		log("getRandomNotCoincide","return-default",1);
 		return 1;
 	}
-	
+
+	//get random number that it smaller than max
 	function getRandom(max){
-		return Math.floor((Math.random() * max) + 1)
+		return Math.floor((Math.random() * max));
 	}
-	
-</script>
-</body>
-</html>
+
+								</script>
+							</body>
+						</html>
