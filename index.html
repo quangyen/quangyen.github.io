@@ -11,27 +11,14 @@
 					<title>Hello, world!</title>
 				</head>
 				<body>
-					<div class="container  mr-0 mt-5">
-						<div class="col-md-12 justify-content-md-center mb-5"> 
+					<div class="container mt-1">
+						<div class="text-right mb-1">
+							<button type="button" class="btn btn-primary" onclick="getWord(1)">Try it</button>
+							<button type="button" class="btn btn-primary ml-1" onclick="getWord(3)">Try it</button>
+							<button type="button" class="btn btn-primary ml-1" onclick="getWord(24)">Try it</button>
+						</div>
 
-						</div>
-						<div class="row">
-							<div class="col-10">
-								<div class="row" id="main">
-								</div>
-							</div>
-							<div class="col-2 justify-content-md-right">
-								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord(1)">Try it</button>
-								</div>
-								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord(3)">Try it</button>
-								</div>
-								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord(24)">Try it</button>
-								</div>		
-							</div>
-						</div>
+						<div class="row" id="main"></div>
 					</div>
 					<!-- Optional JavaScript -->
 					<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -47,17 +34,17 @@
 	var oldList = [];
 	var max = learn.length;
 	var color = ["alert-success","alert-warning","alert-danger","alert-secondary"];
-	
+
 	function getDataLearn(){
 		var data = '[{"en":"","vi":"Sáng nay tôi bận nên tôi không thể tới được","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Tôi làm được rồi - Giỏi lắm!","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Hôm qua bố tôi đi làm về muộn","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Vì trời mưa to nên chúng tôi trú mưa trong căn nhà đó","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Đêm qua em ngủ ngon không? - Em có","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ muốn thành công nhưng họ thất bại","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cậu nói gì cơ? - Tôi nói là ông ấy từ chối lời đề nghị của chúng ta","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Con mèo đen đó làm vỡ chiếc lọ hoa của tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Chồng bà ấy chết cách đây 10 năm","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Sáng hôm qua giám đốc tôi bay ra Hà Nội công tác","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cô bé mở mắt và trông thấy một bà tiên","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ hoãn cuộc họp này lại vì ông giám đốc bị tai nạn","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Có một hôm Lan bảo tôi là cô ấy đã có thai","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Tối hôm qua bác tôi đến thăm tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ không thể trốn thoát vì người lính gác đột nhiên xuất hiện","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cách đây không lâu một chiếc xe máy đâm trúng bố tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"be","vi":"was/were","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"become","vi":"became","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"build","vi":"build","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"buy","vi":"bought","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"catch","vi":"caught","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"choose","vi":"chose","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"come","vi":"came","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"do","vi":"did","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"drink","vi":"drank","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"drive","vi":"drove","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"eat","vi":"ate","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"fall","vi":"fell","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"feel","vi":"felt","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"find","vi":"found","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"fly","vi":"flew","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"forget","vi":"forgot","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"forgive","vi":"forgave","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"get","vi":"got","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"give","vi":"gave","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"go","vi":"went","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"have","vi":"had","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"hear","vi":"heard","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"hurt","vi":"hurt","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"know","vi":"knew","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"learn","vi":"learned","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"leave","vi":"left","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"make","vi":"made","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"meet","vi":"met","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"put","vi":"put","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"read","vi":"read","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"run","vi":"ran","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"say","vi":"said","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"see","vi":"saw","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sell","vi":"sold","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sing","vi":"sang","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sit","vi":"sat","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sleep","vi":"slept","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"speak","vi":"spoke","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"stand","vi":"stood","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"wim","vi":"swam","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"take","vi":"took","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"teach","vi":"taught","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"think","vi":"thought","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"understand","vi":"understood","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"write","vi":"wrote","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"can","vi":"could","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"may","vi":"might","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"must","vi":"must không có ở dạng quá khứ","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"shall","vi":"should","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"will","vi":"would","type":"voca","less":"0n","kind":"*","pron":"","note":""}]';
 		return JSON.parse(data);
 	}
-	
+
 	function getDataLession(){
 		var data = '{"0n":"Quá khứ đơn","3b":"","5f":"","8e":""}';
 		return JSON.parse(data);
 	}
-	
+
 	function formatData(format,data,less){
 		var dataTemp = {};
 		var sperate = " - ";
@@ -70,34 +57,34 @@
 		}
 		return dataTemp;
 	}
-	
+
 	function getLearnProperty(data,prop,less){
 		return prop === "less" ? less[data[prop]] : data[prop];
 	}
-	
+
 	function genTag(data,less){
 		switch(data.type){
 			case "stc": return genSentence(data,less);
 			case "voca": return genVoca(data,less)
 		}
 	}
-	
+
 	function genVoca(data,less){
 		var format = {primary:["en","kind"],title:["less"],content:["vi"]};
 		var dataFormat = formatData(format,data,less);
 		return getHtmlTag(dataFormat);
 	}
-	
+
 	function genSentence(data,less){
 		var format = {primary:["vi"],title:["less"],content:["en"]};
 		var dataFormat = formatData(format,data,less);
 		return getHtmlTag(dataFormat);
 	}
-	
+
 	function getHtmlTag(data){
 		return '<div class="col-12 alert '+color[getRandom(3)]+'"  data-toggle="popover" data-trigger="hover" title="'+data.title+'" data-placement="bottom" data-content="'+data.content+'">'+data.primary+'</div>'
 	}
-	
+
 	function getWord(words){
 		$('#main').empty();
 		for(var i =0; i < words; i++){
@@ -160,6 +147,6 @@
 		return Math.floor((Math.random() * max));
 	}
 
-								</script>
-							</body>
-						</html>
+											</script>
+										</body>
+									</html>
