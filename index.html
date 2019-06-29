@@ -53,7 +53,10 @@
 		for (var property in format) {
 			var join = getLearnProperty(data,format[property][0],less);
 			for (var i = 1; i < format[property].length; i++){
-				join += sperate + getLearnProperty(data,format[property][i],less);
+				var dt = getLearnProperty(data,format[property][i],less);
+				if (dt != null && dt.length > 0){
+					join += sperate + getLearnProperty(data,format[property][i],less);
+				}
 			}
 			dataTemp[property] = join;
 		}
@@ -172,4 +175,4 @@
 
 											</script>
 										</body>
-									</html> 
+									</html>
