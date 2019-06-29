@@ -22,13 +22,13 @@
 							</div>
 							<div class="col-2 justify-content-md-right">
 								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord(1)">Try it</button>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord(3)">Try it</button>
 								</div>
 								<div class="row">
-									<button type="button" class="btn btn-primary mb-2" onclick="getWord()">Try it</button>
+									<button type="button" class="btn btn-primary mb-2" onclick="getWord(24)">Try it</button>
 								</div>		
 							</div>
 						</div>
@@ -40,61 +40,68 @@
 					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 					<script>
     $(function () {
-		getWord();
+		getWord(3);
 	})
-	var voca = [
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-secondary"  data-toggle="popover" data-trigger="hover" title="Additional (adj)" data-placement="bottom" data-content="/ə\'diʃənl/ - Bổ xung - A đích-sừn-nờ-ry mới được bổ xung vào thư viện này">Additional</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Admit (verb)" data-placement="bottom" data-content="/əd\'mit/ - Thừa nhận - Ăn mít vụng trong tủ lạnh thì thừa nhận đi">Admit</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Agree (verb)" data-placement="bottom" data-content="/ə\'gri:/ - Đồng ý - Ơ con ga ri ăn mừng vì được đồng ý xuất chuồng kìa">Agree</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Announce (verb)" data-placement="bottom" data-content="/ə\'nauns/ - Thông báo - Đi ăn nào, thông báo nghỉ trưa rồi">Announce</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Apologize (verb)" data-placement="bottom" data-content="/ə\'pɔlədʤaiz/ - Xin lỗi - Xin lỗi nhé, ăn bò nó dai quá nên rụng hết răng">Apologize</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Approve (verb)" data-placement="bottom" data-content="/ə\'pru:v/ - Tán thành - Ơ, ba rủ về quê cả nhà đều tán thành">Approve</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Argue (verb)" data-placement="bottom" data-content="/\'ɑ:gju:/ - Tranh luận - Ơ , dìu bác ra tòa tranh luận mau">Argue</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Blame (verb)" data-placement="bottom" data-content="/bleim/ - Khiển trách - Bà lém thế sao mà khiển trách được">Blame</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Brief (verb)" data-placement="bottom" data-content="/bri:f/ - Tóm tắt - Ríp tóm tắt câu chuyện trong 3 nốt nhạc">Brief</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Brochure (noun)" data-placement="bottom" data-content="/\'brouʃjuə/ - Cuốn sách nhỏ - Bộ râu chờ bạn cuốn sách nhỏ cùng đi chơi">Brochure</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-secondary"  data-toggle="popover" data-trigger="hover" title="Certain (adj)" data-placement="bottom" data-content="/\'sə:tn/ - Chắc - Biết chắc mình sai nên tớ sợ từng li từng tí">Certain</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Comma (noun)" data-placement="bottom" data-content="/\'kɔmə/ - Dấu phẩy - Con mà đặt dấu phẩy ở đây là sai đấy">Comma</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Complaint (noun)" data-placement="bottom" data-content="/kəm\'pleint/ - Phàn nàn - Bạn ấy còn lên cả ti vi để phàn nàn về chất lượng nước">Complaint</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Complete (verb)" data-placement="bottom" data-content="/kəm\'pli:t/ - Hoàn tất - Vì cơm hết nên không thể hoàn tất bữa cơm">Complete</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Conference (noun)" data-placement="bottom" data-content="/\'kɔnfərəns/ - Hội nghị - Cơm phở dần được phục vụ trong bữa ăn các hội nghị lớn">Conference</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Confirm (verb)" data-placement="bottom" data-content="/kən\'fə:m/ - Xác nhận - Tôi xác nhận là còn phim đó trên rạp CGV nhé">Confirm</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Contact (verb)" data-placement="bottom" data-content="/kɔntækt/ - Liên lạc - Đi công tác nhớ hay liên lạc về nhà nhé">Contact</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Convince (verb)" data-placement="bottom" data-content="/kən\'vins/ - Thuyết phục - Con vịt thuyết phục mẹ nó cho đi chơi">Convince</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Discuss (verb)" data-placement="bottom" data-content="/dis\'kʌs/ - Thảo luận - Cả nhóm thảo luận cách đi cứu người sắt">Discuss</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-secondary"  data-toggle="popover" data-trigger="hover" title="Extreme (adj)" data-placement="bottom" data-content="/iks\'tri:m/ - Vô cùng - Ếch chê mèo lười vô cùng">Extreme</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Hint (noun)" data-placement="bottom" data-content="/hint/ - Lời gợi ý - Tấm hình chứa lời gợi ý">Hint</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Hurry (verb)" data-placement="bottom" data-content="/\'hʌri/ - Giục - Hơ ri uôn giục Chấn Thành đi làm sớm">Hurry</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-danger"  data-toggle="popover" data-trigger="hover" title="Almost (adv)" data-placement="bottom" data-content=" - Hầu như - ">Almost</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Confidence (noun)" data-placement="bottom" data-content=" - Sự tự tin - ">Confidence</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-danger"  data-toggle="popover" data-trigger="hover" title="Despite (adv)" data-placement="bottom" data-content=" - Mặc dù - ">Despite</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Emphasize (verb)" data-placement="bottom" data-content=" - Nhấn mạnh - ">Emphasize</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Express (verb)" data-placement="bottom" data-content=" - Bày tỏ - ">Express</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Guess (verb)" data-placement="bottom" data-content=" - Đoán - ">Guess</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Imply (verb)" data-placement="bottom" data-content=" - Ám chỉ - ">Imply</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Inform (verb)" data-placement="bottom" data-content=" - Thông báo - ">Inform</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-secondary"  data-toggle="popover" data-trigger="hover" title="Initial (adj)" data-placement="bottom" data-content=" - Mở đầu - ">Initial</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Idiom (noun)" data-placement="bottom" data-content=" - Thành ngữ - ">Idiom</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Insist (verb)" data-placement="bottom" data-content=" - Khăng khăng - ">Insist</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Issue (noun)" data-placement="bottom" data-content=" - Vấn đề - ">Issue</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Mention (verb)" data-placement="bottom" data-content=" - Đề cập - ">Mention</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Interrupt (verb)" data-placement="bottom" data-content=" - Gián đoạn - ">Interrupt</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Material (noun)" data-placement="bottom" data-content=" - Nguyên liệu - ">Material</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Inquiry (noun)" data-placement="bottom" data-content=" - Cuộc điều tra - ">Inquiry</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Persuade (verb)" data-placement="bottom" data-content=" - Thuyết phục - ">Persuade</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Predict (verb)" data-placement="bottom" data-content=" - Dự báo - ">Predict</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-warning"  data-toggle="popover" data-trigger="hover" title="Quote (verb)" data-placement="bottom" data-content=" - Trích dẫn - ">Quote</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Phase (noun)" data-placement="bottom" data-content=" - Giai đoạn - ">Phase</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Questionnaire (noun)" data-placement="bottom" data-content=" - Câu hỏi - ">Questionnaire</div><div class="col-1 col-sm-1 col-md-1"></div>',
-			'<div class="col-1 d-block d-sm-none"></div><div class="col-10 col-sm-5 col-md-3 alert alert-success"  data-toggle="popover" data-trigger="hover" title="Paragraph (noun)" data-placement="bottom" data-content=" - Đoạn văn - ">Paragraph</div><div class="col-1 col-sm-1 col-md-1"></div>'
-		];
+	var learn = getDataLearn();
+	var lesson = getDataLession();
 	var oldList = [];
-	var max = voca.length;
-
-	function getWord(){
+	var max = learn.length;
+	var color = ["alert-success","alert-warning","alert-danger","alert-secondary"];
+	
+	function getDataLearn(){
+		var data = '[{"en":"","vi":"Sáng nay tôi bận nên tôi không thể tới được","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Tôi làm được rồi - Giỏi lắm!","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Hôm qua bố tôi đi làm về muộn","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Vì trời mưa to nên chúng tôi trú mưa trong căn nhà đó","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Đêm qua em ngủ ngon không? - Em có","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ muốn thành công nhưng họ thất bại","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cậu nói gì cơ? - Tôi nói là ông ấy từ chối lời đề nghị của chúng ta","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Con mèo đen đó làm vỡ chiếc lọ hoa của tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Chồng bà ấy chết cách đây 10 năm","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Sáng hôm qua giám đốc tôi bay ra Hà Nội công tác","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cô bé mở mắt và trông thấy một bà tiên","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ hoãn cuộc họp này lại vì ông giám đốc bị tai nạn","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Có một hôm Lan bảo tôi là cô ấy đã có thai","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Tối hôm qua bác tôi đến thăm tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Họ không thể trốn thoát vì người lính gác đột nhiên xuất hiện","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"","vi":"Cách đây không lâu một chiếc xe máy đâm trúng bố tôi","type":"stc","less":"0n","kind":"","pron":"","note":""},{"en":"be","vi":"was/were","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"become","vi":"became","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"build","vi":"build","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"buy","vi":"bought","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"catch","vi":"caught","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"choose","vi":"chose","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"come","vi":"came","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"do","vi":"did","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"drink","vi":"drank","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"drive","vi":"drove","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"eat","vi":"ate","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"fall","vi":"fell","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"feel","vi":"felt","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"find","vi":"found","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"fly","vi":"flew","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"forget","vi":"forgot","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"forgive","vi":"forgave","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"get","vi":"got","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"give","vi":"gave","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"go","vi":"went","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"have","vi":"had","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"hear","vi":"heard","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"hurt","vi":"hurt","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"know","vi":"knew","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"learn","vi":"learned","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"leave","vi":"left","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"make","vi":"made","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"meet","vi":"met","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"put","vi":"put","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"read","vi":"read","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"run","vi":"ran","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"say","vi":"said","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"see","vi":"saw","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sell","vi":"sold","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sing","vi":"sang","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sit","vi":"sat","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"sleep","vi":"slept","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"speak","vi":"spoke","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"stand","vi":"stood","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"wim","vi":"swam","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"take","vi":"took","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"teach","vi":"taught","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"think","vi":"thought","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"understand","vi":"understood","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"write","vi":"wrote","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"can","vi":"could","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"may","vi":"might","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"must","vi":"must không có ở dạng quá khứ","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"shall","vi":"should","type":"voca","less":"0n","kind":"*","pron":"","note":""},{"en":"will","vi":"would","type":"voca","less":"0n","kind":"*","pron":"","note":""}]';
+		return JSON.parse(data);
+	}
+	
+	function getDataLession(){
+		var data = '{"0n":"Quá khứ đơn","3b":"","5f":"","8e":""}';
+		return JSON.parse(data);
+	}
+	
+	function formatData(format,data,less){
+		var dataTemp = {};
+		var sperate = " - ";
+		for (var property in format) {
+			var join = getLearnProperty(data,format[property][0],less);
+			for (var i = 1; i < format[property].length; i++){
+				join += sperate + getLearnProperty(data,format[property][i],less);
+			}
+			dataTemp[property] = join;
+		}
+		return dataTemp;
+	}
+	
+	function getLearnProperty(data,prop,less){
+		return prop === "less" ? less[data[prop]] : data[prop];
+	}
+	
+	function genTag(data,less){
+		switch(data.type){
+			case "stc": return genSentence(data,less);
+			case "voca": return genVoca(data,less)
+		}
+	}
+	
+	function genVoca(data,less){
+		var format = {primary:["en","kind"],title:["less"],content:["vi"]};
+		var dataFormat = formatData(format,data,less);
+		return getHtmlTag(dataFormat);
+	}
+	
+	function genSentence(data,less){
+		var format = {primary:["vi"],title:["less"],content:["en"]};
+		var dataFormat = formatData(format,data,less);
+		return getHtmlTag(dataFormat);
+	}
+	
+	function getHtmlTag(data){
+		return '<div class="col-1 d-block d-sm-none"></div><div class="col-10 alert '+color[getRandom(3)]+'"  data-toggle="popover" data-trigger="hover" title="'+data.title+'" data-placement="bottom" data-content="'+data.content+'">'+data.primary+'</div><div class="col-1 col-sm-1 col-md-1"></div>'
+	}
+	
+	function getWord(words){
 		$('#main').empty();
-		for(var i =0; i < 24; i++){
-			$('#main').append(voca[getRandomNotCoincide(oldList,max,maxHandle)]);
+		for(var i =0; i < words; i++){
+			$('#main').append(genTag(learn[getRandomNotCoincide(oldList,max,maxHandle)],lesson));
 		}
 		$('[data-toggle="popover"]').popover();
 		log("==============================================================");
@@ -107,11 +114,6 @@
 			log("maxHandle","oldList",oldList);
 			emptyArr(oldList);
 		}
-	}
-
-	function log(func, element, mess){
-		var message = typeof(mess) === "object" ? JSON.stringify(mess) : mess;
-		log(func + " : " + element + " : " + mess);
 	}
 
 	function log(...agrs){
@@ -153,7 +155,7 @@
 		return 1;
 	}
 
-	//get random number that it smaller than max
+	//get a random number, which is smaller than max
 	function getRandom(max){
 		return Math.floor((Math.random() * max));
 	}
