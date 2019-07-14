@@ -121,7 +121,7 @@ function formatData(format,data,less){
 
 var separate = " - ";
 function getHtmlVocaTag(data){
-    return '<div class="col-12 alert alert-'+data.colour+'" data-toggle="popover" data-trigger="hover" title="'+data.title.join(separate)+'" data-placement="bottom" data-content="'+data.content.join(separate)+'"><lead>'+data.primary.join(separate)+'</lead>' + gentHtmlSmall(data.small) + '</div>'
+    return '<div class="col-12 alert alert-'+data.colour+'" data-toggle="popover" data-placement="top"  data-trigger="hover" title="'+data.title.join(separate)+'" data-placement="bottom" data-content="'+data.content.join(separate)+'"><lead>'+data.primary.join(separate)+'</lead>' + gentHtmlSmall(data.small) + '</div>'
 }
 
 function gentHtmlSmall(data) {
